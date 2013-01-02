@@ -7,7 +7,7 @@ The Art is where we can blend these two standards bodies; higher levels of abstr
 
 Cheers!
 
-- Dan 
+
 
 We are utilizing many various open source projects. Thank you, thank you, thank you open source community!!!!!!
 
