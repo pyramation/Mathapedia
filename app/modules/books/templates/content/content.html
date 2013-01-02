@@ -1,0 +1,85 @@
+<ul class="breadcrumb">
+  <li><a href="/books/{{book.id}}">{{book.name}}</a> <span class="divider">/</span></li>
+  <li><a href="/books/{{book.id}}/sections/{{section.id}}">{{section.name}}</a> <span class="divider">/</span></li>
+  <li class="active">{{content.name}}</li>
+</ul>
+
+{{#if auth.can}}
+
+<a class="btn btn-large pull-right" href="/books/{{book.id}}/sections/{{section.id}}/{{content.id}}/edit"><i class="icon-pencil"></i>Edit</a>
+
+
+{{/if}}
+
+
+<div class="btn-toolbar">
+  <div class="btn-group">
+
+	{{#if prev}} 
+	    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/{{prev.id}}"><i class="icon-step-backward"></i>{{prev.name}}</a>
+	{{else}}
+
+			{{#if prevSection}} 
+    		  <a class="btn btn-small" href="/books/{{book.id}}/sections/{{prevSection.id}}">{{prevSection.name}}</a> 
+		  	{{else}}
+	          <a class="btn btn-small disabled" href="#" data-bypass=true><i class="icon-step-backward"></i></a>
+   	 	    {{/if}}
+
+	{{/if}}
+
+	{{#if next}}
+	    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/{{next.id}}">{{next.name}} <i class="icon-step-forward"></i></a>
+	{{else}}
+
+		{{#if nextSection}} 
+	       <a class="btn btn-small"  href="/books/{{book.id}}/sections/{{nextSection.id}}">{{nextSection.name}}</a> 
+	  	{{else}}
+		    <a class="btn btn-small disabled" href="#" data-bypass=true><i class="icon-step-forward"></i></a>
+	 	{{/if}}
+
+	{{/if}}    
+  
+  </div>
+</div>
+
+
+
+
+
+<hr>
+
+<h3>{{content.name}}</h3>
+
+<div class="mathapedia-ctx"></div>
+
+<hr>
+
+<div class="btn-toolbar">
+  <div class="btn-group">
+
+	{{#if prev}} 
+	    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/{{prev.id}}"><i class="icon-step-backward"></i>{{prev.name}}</a>
+	{{else}}
+
+			{{#if prevSection}} 
+    		  <a class="btn btn-small" href="/books/{{book.id}}/sections/{{prevSection.id}}">{{prevSection.name}}</a> 
+		  	{{else}}
+	          <a class="btn btn-small disabled" href="#" data-bypass=true><i class="icon-step-backward"></i></a>
+   	 	    {{/if}}
+
+	{{/if}}
+
+	{{#if next}}
+	    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/{{next.id}}">{{next.name}} <i class="icon-step-forward"></i></a>
+	{{else}}
+
+		{{#if nextSection}} 
+	       <a class="btn btn-small"  href="/books/{{book.id}}/sections/{{nextSection.id}}">{{nextSection.name}}</a> 
+	  	{{else}}
+		    <a class="btn btn-small disabled" href="#" data-bypass=true><i class="icon-step-forward"></i></a>
+	 	{{/if}}
+
+	{{/if}}    
+  
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<ul class="breadcrumb">
+  <li><a href="/books/{{book.id}}">{{book.name}}</a> <span class="divider">/</span></li>
+  <li><a href="/books/{{book.id}}/sections/{{parentsection.id}}">{{parentsection.name}}</a> <span class="divider">/</span></li>
+
+  <li class="active">{{section.name}}</li>
+</ul>
+
+
+{{#if auth.can}}
+
+<h1 class="change-name"> {{section.name}} </h1>
+
+{{else}}
+
+<h1> {{section.name}} </h1>
+
+{{/if}}
+
+<hr>
+
+{{#if auth.can}}
+
+<button class="btn btn-small new-content"><pre>+ \subsubsection</pre></button>
+
+<hr>
+
+{{/if}}
+
+{{#if section.contents}}
+	<ol>
+		{{#each section.contents}}
+			<li><a href="/books/{{../book.id}}/sections/{{../parentsection.id}}/subsections/{{../section.id}}/{{id}}">{{name}}</a>
+		{{/each}}
+	</ol>
+{{/if}}

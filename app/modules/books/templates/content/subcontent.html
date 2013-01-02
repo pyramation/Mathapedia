@@ -1,0 +1,120 @@
+<ul class="breadcrumb">
+  <li><a href="/books/{{book.id}}">{{book.name}}</a> <span class="divider">/</span></li>
+  <li><a href="/books/{{book.id}}/sections/{{section.id}}">{{section.name}}</a> <span class="divider">/</span></li>
+  <li><a href="/books/{{book.id}}/sections/{{section.id}}/subsections/{{subsection.id}}">{{subsection.name}}</a> <span class="divider">/</span></li>
+  <li class="active">{{content.name}}</li>
+</ul>
+
+{{#if auth.can}}
+
+<a class="btn btn-large pull-right" href="/books/{{book.id}}/sections/{{section.id}}/subsections/{{subsection.id}}/{{content.id}}/edit"><i class="icon-pencil"></i>Edit</a>
+
+{{/if}}
+
+<div class="btn-toolbar">
+
+
+
+    <div class="btn-group">
+	{{#if prev}} 
+	    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/subsections/{{subsection.id}}/{{prev.id}}"><i class="icon-step-backward"></i>{{prev.name}}</a>
+	{{else}}
+
+		{{#if prevSection}} 
+		    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/subsections/{{prevSection.id}}"><i class="icon-arrow-left"></i>{{prevSection.name}}</a>
+		{{else}}
+			{{#if prevSubsection}} 
+			    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/subsections/{{prevSubsection.id}}"><i class="icon-arrow-left"></i><i class="icon-arrow-left"></i>{{prevSubsection.name}}</a>
+			{{else}}
+			    <a class="btn btn-small disabled" href="#" data-bypass=true><i class="icon-arrow-left"></i><i class="icon-arrow-left"></i></a>
+			{{/if}}
+		{{/if}}
+
+	{{/if}}
+
+
+	{{#if next}}
+	    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/subsections/{{subsection.id}}/{{next.id}}">{{next.name}} <i class="icon-step-forward"></i></a>
+	{{else}}
+
+
+		{{#if nextSubsection}} 
+		    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/subsections/{{nextSubsection.id}}"><i class="icon-arrow-right"></i><i class="icon-arrow-right"></i>{{nextSubsection.name}}</a>
+		{{else}}
+
+			{{#if nextSection}} 
+			    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{nextSection.id}}"><i class="icon-arrow-right"></i>{{nextSection.name}}</a>
+			{{else}}
+			    <a class="btn btn-small disabled" href="#" data-bypass=true><i class="icon-arrow-right"></i></a>
+			{{/if}}
+
+		{{/if}}
+
+	{{/if}}    
+  
+  </div>
+
+
+  
+
+</div>
+
+
+
+<hr>
+
+<h3>{{content.name}}</h3>
+
+
+<div class="mathapedia-ctx"></div>
+
+<hr>
+
+
+<div class="btn-toolbar">
+
+
+
+    <div class="btn-group">
+	{{#if prev}} 
+	    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/subsections/{{subsection.id}}/{{prev.id}}"><i class="icon-step-backward"></i>{{prev.name}}</a>
+	{{else}}
+
+		{{#if prevSection}} 
+		    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/subsections/{{prevSection.id}}"><i class="icon-arrow-left"></i>{{prevSection.name}}</a>
+		{{else}}
+			{{#if prevSubsection}} 
+			    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/subsections/{{prevSubsection.id}}"><i class="icon-arrow-left"></i><i class="icon-arrow-left"></i>{{prevSubsection.name}}</a>
+			{{else}}
+			    <a class="btn btn-small disabled" href="#" data-bypass=true><i class="icon-arrow-left"></i><i class="icon-arrow-left"></i></a>
+			{{/if}}
+		{{/if}}
+
+	{{/if}}
+
+
+	{{#if next}}
+	    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/subsections/{{subsection.id}}/{{next.id}}">{{next.name}} <i class="icon-step-forward"></i></a>
+	{{else}}
+
+
+		{{#if nextSubsection}} 
+		    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{section.id}}/subsections/{{nextSubsection.id}}"><i class="icon-arrow-right"></i><i class="icon-arrow-right"></i>{{nextSubsection.name}}</a>
+		{{else}}
+
+			{{#if nextSection}} 
+			    <a class="btn btn-small" href="/books/{{book.id}}/sections/{{nextSection.id}}"><i class="icon-arrow-right"></i>{{nextSection.name}}</a>
+			{{else}}
+			    <a class="btn btn-small disabled" href="#" data-bypass=true><i class="icon-arrow-right"></i></a>
+			{{/if}}
+
+		{{/if}}
+
+	{{/if}}    
+  
+  </div>
+
+
+  
+
+</div>

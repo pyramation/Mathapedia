@@ -1,0 +1,118 @@
+<div class="well"> 
+
+{{#if auth.can}}
+
+<h1 class="change-name">{{book.name}}</h1> 
+<h3 class="change-subname">{{book.subtitle}}</h3> 
+
+<div class="btn-toolbar">
+
+	<div class="btn-group">
+		<a href="/books/{{book.id}}/tex" data-bypass="true" target="_tex" class="btn-mini btn"><i class="icon-circle-arrow-down"></i> .tex</a>
+	</div>
+
+	<div class="btn-group">
+		<a href="/books/{{book.id}}/bib" data-bypass="true" target="_tex" class="btn-mini btn"><i class="icon-circle-arrow-down"></i> .bib</a>
+	</div>
+
+	{{#if book.public}}
+
+		<div class="btn-group">
+		  <button class="make-public btn btn-mini active"><i class="icon-eye-open"></i> public</button>
+		  <button class="make-private btn-mini btn"><i class="icon-eye-close"></i> private</button>
+		</div>
+
+	{{else}}
+
+	<div class="btn-group">
+	  <button class="make-public btn-mini btn"><i class="icon-eye-open"></i> public</button>
+	  <button class="make-private btn-mini btn active"><i class="icon-eye-close"></i> private</button>
+	</div>
+
+	{{/if}}
+
+
+	<div class="btn-group">
+	  <button class="add-bib btn-mini btn">Add Reference</button>
+	</div>
+
+</div>
+
+{{else}}
+
+<h1>{{book.name}}</h1> 
+<h3>{{book.subtitle}}</h3> 
+
+
+{{/if}}
+
+</div>
+
+	
+
+{{#if toc}}
+
+{{#if auth.can}}
+
+	<div class="well hidden add-reference">
+	 	<form class="bib">
+	 		name (use this in \cite to reference the reference)
+		 	<input type="text" class="reference-name"/>
+		 	BiBTeX
+		 	<textarea class="reference-text"></textarea>
+			<input type="submit" class="btn" value="Submit" />
+		</form>
+	</div>
+
+
+	<button class="btn new-section"><pre>+ \section</pre></button>
+
+	<hr>
+
+{{/if}}
+
+	<ol>
+		{{#each toc}}
+			<li><a href="/books/{{book_id}}/sections/{{id}}">{{name}}</a>
+
+				{{#if subsections}}
+					<ol>
+						{{#each subsections}}
+						<li><a href="/books/{{book_id}}/sections/{{../id}}/subsections/{{id}}">{{name}}</a>
+							{{#if contents}}
+								<ol>
+									{{#each contents}}
+									<li><a href="/books/{{../book_id}}/sections/{{../../../id}}/subsections/{{../id}}/{{id}}">{{name}}</a>
+
+									{{/each}}
+								</ol>
+							{{/if}}
+						</li>
+						{{/each}}
+					</ol>
+				{{/if}}
+				{{#if contents}}
+					<ol>
+						{{#each contents}}
+							<li><a href="/books/{{../book_id}}/sections/{{../id}}/{{id}}">{{name}}</a>
+						{{/each}}
+					</ol>
+				{{/if}}
+			</li>
+		{{/each}}
+	</ol>
+
+{{else}}
+
+{{#if auth.can}}
+
+<div class="hero-unit">Congrats! You just started your new book. </div>
+
+<div class="well">
+	Create a new section here <button class="btn new-section"><pre>\section</pre></button>
+</div>
+
+{{/if}}
+
+
+{{/if}}

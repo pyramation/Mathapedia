@@ -1,0 +1,28 @@
+
+<input style="width: 390px" type="text" name="Content[name]" placeholder="title" title="name" value="{{content.name}}"> 
+
+<!-- <ul class="breadcrumb">
+  <li><a href="/books/{{book.id}}">{{book.name}}</a> <span class="divider">/</span></li>
+  <li><a href="/books/{{book.id}}/sections/{{section.id}}">{{section.name}}</a> <span class="divider">/</span></li>
+  <li class="active">{{content.name}}</li>
+</ul>
+ -->
+<textarea name="Content[text]" class="latex-content">{{& content.text}}</textarea>
+
+<button type="submit" class="btn btn-mini btn-primary latex-save">Save</button>
+
+<a class="btn btn-mini" href="/books/{{book.id}}/sections/{{section.id}}/{{content.id}}"> Done</a>
+
+<!-- <a class="btn btn-mini latex-cancel" href="/books/{{book.id}}/sections/{{section.id}}/{{content.id}}">Cancel</a>
+ -->
+<input type="checkbox" checked> real-time preview
+
+<div class="progress progress-info progress-striped">
+  <div class="bar" style="width: 0%"></div>
+</div>
+
+
+
+<!-- <hr>
+
+<section class="preview"></section> -->

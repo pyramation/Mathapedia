@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{latex2html5}
+\usepackage{writer}
+\usepackage{auto-pst-pdf}
+\usepackage{pstricks-add}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\definecolor{lightblue}{rgb}{0.0,0.24313725490196078,1.0}
+
+<% if (book.subtitle) { %>
+\title{{\Huge <%- book.name %>} \\ {\Large <%- book.subtitle %>}}
+<% } else { %>
+\title{{\Huge <%- book.name %>}}
+<% } %>
+
+
+\author{
+  \textbf{Dan Lynch} \\
+  UC Berkeley \\
+  EECS Department \\
+  D@nLynch.com \\
+}
+
+\date{1st of December 2012}
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+
+
+<% if (book.abstract) { %>
+\newpage
+\begin{abstract}
+<%- book.abstract %>
+\end{abstract}
+<% } %>
+
+\newpage
+<% for(var i=0; i<sections.length; i++) {%>
+
+\section{<%- sections[i].name %>}
+<% if (sections[i].subsections) { %>
+<% for(var j=0; j<sections[i].subsections.length; j++) {%>
+\subsection{<%- sections[i].subsections[j].name %>}
+
+<% if (sections[i].subsections[j].contents) { %>
+<% for(var k=0; k<sections[i].subsections[j].contents.length; k++) {%>
+\subsubsection{<%= sections[i].subsections[j].contents[k].name %>}
+<%- sections[i].subsections[j].contents[k].text %>
+<% } %>
+<% } %>
+
+<% } %>
+<% } %>
+
+<% if (sections[i].contents) { %>
+<% for(var j=0; j<sections[i].contents.length; j++) {%>
+\subsection{<%- sections[i].contents[j].name %>}
+<%- sections[i].contents[j].text %>
+<% } %>
+<% } %>
+
+<% } %>
+
+\newpage
+\bibliographystyle{cell}
+\bibliography{sources}
+
+
+\end{document}

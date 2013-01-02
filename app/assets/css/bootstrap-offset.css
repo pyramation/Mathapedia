@@ -1,0 +1,29 @@
+body {
+  position: relative;
+  padding-top: 60px;
+}
+
+
+
+@media (min-width: 767px) {
+	body.editor {
+		padding-top: 385px;
+	}
+}
+
+
+@media (min-width: 767px) {
+	body.latex {
+		padding-top: 425px;
+	}
+}
+
+
+
+.navbar .latex-content {
+	display: none;
+}
+
+body.editor .navbar .latex-content {
+	display: block;
+}
