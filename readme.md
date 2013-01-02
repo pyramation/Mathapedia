@@ -5,30 +5,57 @@ The loose structure and nature of user interface design poses a problem for docu
 
 The Art is where we can blend these two standards bodies; higher levels of abstraction allow people to express their ideas without having to worry about the mechanisms by which the technology is rendering their works. It is in these environments when people can express themselves freely.
 
-
 Cheers!
 
-## Notes ##
+- Dan 
 
-If there is 1 takeaway for developers, the most important files for adding functionality:
-# expressions.js
-# psgraph.js
-# renderer.js
+We are utilizing many various open source projects. Thank you, thank you, thank you open source community!!!!!!
 
+# Frontend
 
-We are utilizing many various open source projects. 
+[MathJax](http://www.mathjax.org/)
 
-View the Backbone Boilerplate documentation here:
+[Aura](https://github.com/aurajs/aura)
+    
+[Backbone](https://github.com/documentcloud/backbone)
+  
+[RequireJS](https://github.com/jrburke/requirejs)
 
-[GitHub Wiki](https://github.com/tbranyen/backbone-boilerplate/wiki)
+[Backbone Layout Manager](https://github.com/tbranyen/backbone.layoutmanager)
+
+[Async.js](https://github.com/caolan/async)
+
+[CodeMirror](http://codemirror.net)
+    
+[D3](http://d3js.org/)
+    
+[bootstrap](http://twitter.github.com/bootstrap/)
+  
+[jQuery](http://jquery.com/)
+    
+[underscore.js](http://underscorejs.org/)
+
+[handlebars.js](http://handlebarsjs.com/)
+
+# Backend
+
+[nginx](http://wiki.nginx.org/Main)
+
+[node.js](http://nodejs.org/)
+
+[express.js](http://expressjs.com/)
+
+[jugglingdb](https://github.com/pyramation/jugglingdb/tree/has-and-belongs-to-many)
 
 ## Build process ##
+
+[Backbone Boilerplate](https://github.com/tbranyen/backbone-boilerplate/wiki)
 
 [grunt-bbb](https://github.com/backbone-boilerplate/grunt-bbb)
 plugin repo and follow the instructions to install.  Basing your project off
 this repo will allow the `bbb` commands to work out-of-the-box.
 
+## Notes ##
 
-## SQL / JugglingDB ##
+If there is one takeaway for developers, the most important files for adding (LaTeX) functionality: expressions.js, psgraph.js, renderer.js
 
-[jugglingdb](https://github.com/pyramation/jugglingdb/tree/has-and-belongs-to-many)
