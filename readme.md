@@ -7,7 +7,9 @@ The Art is where we can blend these two standards bodies; higher levels of abstr
 
 Cheers!
 
+[video](http://www.youtube.com/watch?v=QYMLMUKJyFc)
 
+[demo](https://mathapedia.com)
 
 We are utilizing many various open source projects. Thank you, thank you, thank you open source community!!!!!!
 
@@ -46,6 +48,8 @@ We are utilizing many various open source projects. Thank you, thank you, thank 
 [express.js](http://expressjs.com/)
 
 [jugglingdb](https://github.com/pyramation/jugglingdb/tree/has-and-belongs-to-many)
+
+[MySQL](http://www.mysql.com/)
 
 ## Build process ##
 
