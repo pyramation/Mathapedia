@@ -12,55 +12,8 @@ Cheers!
 [demo](https://mathapedia.com)
 
 
-We are utilizing many various open source projects. Thank you, thank you, thank you open source community!!!!!!
-
-# Frontend
-
-[MathJax](http://www.mathjax.org/)
-
-[Aura](https://github.com/aurajs/aura)
-    
-[Backbone](https://github.com/documentcloud/backbone)
-  
-[RequireJS](https://github.com/jrburke/requirejs)
-
-[Backbone Layout Manager](https://github.com/tbranyen/backbone.layoutmanager)
-
-[Async.js](https://github.com/caolan/async)
-
-[CodeMirror](http://codemirror.net)
-    
-[D3](http://d3js.org/)
-    
-[bootstrap](http://twitter.github.com/bootstrap/)
-  
-[jQuery](http://jquery.com/)
-    
-[underscore.js](http://underscorejs.org/)
-
-[handlebars.js](http://handlebarsjs.com/)
-
-# Backend
-
-[nginx](http://wiki.nginx.org/Main)
-
-[node.js](http://nodejs.org/)
-
-[express.js](http://expressjs.com/)
-
-[MySQL](http://www.mysql.com/)
-
-[jugglingdb](https://github.com/pyramation/jugglingdb/tree/has-and-belongs-to-many)
-
-## Build process ##
-
-[Backbone Boilerplate](https://github.com/tbranyen/backbone-boilerplate/wiki)
-
-[grunt-bbb](https://github.com/backbone-boilerplate/grunt-bbb)
-plugin repo and follow the instructions to install.  Basing your project off
-this repo will allow the `bbb` commands to work out-of-the-box.
-
-## Notes ##
+Adding new LaTeX commands
+=========================
 
 If there is one takeaway for developers, the most important files for adding (LaTeX) functionality: expressions.js, psgraph.js, renderer.js
 
@@ -88,14 +41,17 @@ installing npm packages
 ---------------------
 
 these run globally (they are for the build and monitoring):
+
     npm install -g forever
     npm install -g bbb
 
 The rest is a part of the repo and can be installed more easily:
+
     cd /var/www/LaTeX2HTML5
     npm install
 
 Installing jugglingdb (the database ORM):
+
     cd node_modules
     git clone https://github.com/pyramation/jugglingdb
     git checkout c4a8a6ff2a061704970def0fbdd255a3979060ca
@@ -104,6 +60,7 @@ Database Setup
 --------------
 
 Create a mysql user
+
     GRANT ALL PRIVILEGES ON latex2html5_db.* TO latex2html5@localhost IDENTIFIED BY 'skateboard321' WITH GRANT OPTION;
 
 
@@ -111,6 +68,7 @@ Web Server Setup
 ----------------
 
 make public folder and create symbolic links to public content
+
     cd /var/www
     mkdir public
     cd public
@@ -167,3 +125,52 @@ Edit nginx.conf in /usr/local/nginx/conf or wherever it was installed so that yo
         }
 
     }
+
+
+We are utilizing many various open source projects. Thank you, thank you, thank you open source community!!!!!!
+
+# Frontend
+
+[MathJax](http://www.mathjax.org/)
+
+[Aura](https://github.com/aurajs/aura)
+    
+[Backbone](https://github.com/documentcloud/backbone)
+  
+[RequireJS](https://github.com/jrburke/requirejs)
+
+[Backbone Layout Manager](https://github.com/tbranyen/backbone.layoutmanager)
+
+[Async.js](https://github.com/caolan/async)
+
+[CodeMirror](http://codemirror.net)
+    
+[D3](http://d3js.org/)
+    
+[bootstrap](http://twitter.github.com/bootstrap/)
+  
+[jQuery](http://jquery.com/)
+    
+[underscore.js](http://underscorejs.org/)
+
+[handlebars.js](http://handlebarsjs.com/)
+
+# Backend
+
+[nginx](http://wiki.nginx.org/Main)
+
+[node.js](http://nodejs.org/)
+
+[express.js](http://expressjs.com/)
+
+[MySQL](http://www.mysql.com/)
+
+[jugglingdb](https://github.com/pyramation/jugglingdb/tree/has-and-belongs-to-many)
+
+## Build process ##
+
+[Backbone Boilerplate](https://github.com/tbranyen/backbone-boilerplate/wiki)
+
+[grunt-bbb](https://github.com/backbone-boilerplate/grunt-bbb)
+plugin repo and follow the instructions to install.  Basing your project off
+this repo will allow the `bbb` commands to work out-of-the-box.
