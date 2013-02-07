@@ -8,8 +8,9 @@ The Art is where we can blend these two standards bodies; higher levels of abstr
 Cheers!
 
 [video](http://www.youtube.com/watch?v=QYMLMUKJyFc)
-
+ 
 [demo](https://mathapedia.com)
+
 
 We are utilizing many various open source projects. Thank you, thank you, thank you open source community!!!!!!
 
@@ -47,9 +48,9 @@ We are utilizing many various open source projects. Thank you, thank you, thank 
 
 [express.js](http://expressjs.com/)
 
-[jugglingdb](https://github.com/pyramation/jugglingdb/tree/has-and-belongs-to-many)
-
 [MySQL](http://www.mysql.com/)
+
+[jugglingdb](https://github.com/pyramation/jugglingdb/tree/has-and-belongs-to-many)
 
 ## Build process ##
 
@@ -63,3 +64,106 @@ this repo will allow the `bbb` commands to work out-of-the-box.
 
 If there is one takeaway for developers, the most important files for adding (LaTeX) functionality: expressions.js, psgraph.js, renderer.js
 
+Installation
+============
+
+System was built with currently running
+* nginx v0.8.54 
+* nodejs v0.8.11
+* mysql v14.14
+
+installing nodejs, npm, and mysql
+---------------------------------
+
+These three installations vary from machine to machine. Use Google
+
+
+pulling the repo down
+---------------------
+    cd /var/www
+    git clone https://github.com/pyramation/LaTeX2HTML5.git
+
+
+installing npm packages
+---------------------
+
+these run globally (they are for the build and monitoring):
+    npm install -g forever
+    npm install -g bbb
+
+The rest is a part of the repo and can be installed more easily:
+    cd /var/www/LaTeX2HTML5
+    npm install
+
+Installing jugglingdb (the database ORM):
+    cd node_modules
+    git clone https://github.com/pyramation/jugglingdb
+    git checkout c4a8a6ff2a061704970def0fbdd255a3979060ca
+
+Database Setup
+--------------
+
+Create a mysql user
+    GRANT ALL PRIVILEGES ON latex2html5_db.* TO latex2html5@localhost IDENTIFIED BY 'skateboard321' WITH GRANT OPTION;
+
+
+Web Server Setup
+----------------
+
+make public folder and create symbolic links to public content
+    cd /var/www
+    mkdir public
+    cd public
+    ln -s ../LaTeX2HTML5/dist dist
+    ln -s../LaTeX2HTML5/app app
+
+Edit nginx.conf in /usr/local/nginx/conf or wherever it was installed so that you proxy port 9000 and point to the public folder for the root:
+
+
+    worker_processes  1;
+
+    events {
+        worker_connections  1024;
+    }
+
+    http {
+        include       mime.types;
+        default_type  application/octet-stream;
+
+        sendfile        on;
+        keepalive_timeout  65;
+
+        upstream math_server {
+            server localhost:9000 fail_timeout=0;
+        }
+
+        proxy_set_header Host yourdomain.com;
+        proxy_set_header X-forwarded-for $proxy_add_x_forwarded_for;
+
+        server {
+            listen       80;
+            server_name  localhost;
+            root /var/www/public/;
+
+            location / {
+                   try_files $uri @backer;
+            }
+            location @backer {
+               proxy_pass http://math_server$request_uri;
+            }
+            location ~* \.(png|jpg|jpeg|gif|ico|js|css)$ {
+                expires max;
+                log_not_found off;
+            }
+
+            #error_page  404              /404.html;
+
+            # redirect server error pages to the static page /50x.html
+            error_page   500 502 503 504  /50x.html;
+            location = /50x.html {
+                root   html;
+            }
+
+        }
+
+    }
