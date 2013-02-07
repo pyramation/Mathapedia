@@ -63,6 +63,10 @@ Create a mysql user
 
     GRANT ALL PRIVILEGES ON latex2html5_db.* TO latex2html5@localhost IDENTIFIED BY 'skateboard321' WITH GRANT OPTION;
 
+Create the database
+
+	CREATE DATABASE latex2html5_db;
+
 Initialize database
 
 	cd /var/www/LaTeX2HTML5
