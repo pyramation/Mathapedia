@@ -20,7 +20,6 @@ If there is one takeaway for developers, the most important files for adding (La
 Installation
 ============
 
-System was built with currently running
 * nginx v0.8.54 
 * nodejs v0.8.11
 * mysql v14.14
@@ -28,16 +27,17 @@ System was built with currently running
 installing nodejs, npm, and mysql
 ---------------------------------
 
-These three installations vary from machine to machine. Use Google
+These three installations vary from machine to machine. Your best bet is to use Google for this.
 
 
-pulling the repo down
+get the code
 ---------------------
+
     cd /var/www
     git clone https://github.com/pyramation/LaTeX2HTML5.git
 
 
-installing npm packages
+install node packages
 ---------------------
 
 these run globally (they are for the build and monitoring):
@@ -63,11 +63,16 @@ Create a mysql user
 
     GRANT ALL PRIVILEGES ON latex2html5_db.* TO latex2html5@localhost IDENTIFIED BY 'skateboard321' WITH GRANT OPTION;
 
+Initialize database
+
+	cd /var/www/LaTeX2HTML5
+	bbb db:migrate
+
 
 Web Server Setup
 ----------------
 
-make public folder and create symbolic links to public content
+make public folder and create symbolic links that alias the public folders
 
     cd /var/www
     mkdir public
