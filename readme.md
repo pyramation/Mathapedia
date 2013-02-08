@@ -5,7 +5,7 @@ The loose structure and nature of user interface design poses a problem for docu
 
 The Art is where we can blend these two standards bodies; higher levels of abstraction allow people to express their ideas without having to worry about the mechanisms by which the technology is rendering their works. It is in these environments when people can express themselves freely.
 
-https://mathapedia.com/app/assets/img/photo.png
+![Mathapedia](https://mathapedia.com/app/assets/img/photo.png)
 
 Cheers!
 
