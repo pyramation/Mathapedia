@@ -140,6 +140,32 @@ Edit nginx.conf in /usr/local/nginx/conf or wherever it was installed so that yo
 
 We are utilizing many various open source projects. Thank you, thank you, thank you open source community!!!!!!
 
+
+Starting the Server for Development
+-----------------------------------
+
+    cd /var/www/LaTeX2HTML5
+    npm start
+
+
+Starting the Server for Production
+----------------------------------
+
+    bbb release
+    RELEASE=1 forever start server/app.js 
+
+
+Working Locally
+---------------
+
+If you want to work locally and use some.com in your browser, you can edit your `/etc/hosts/` file
+
+    127.0.0.1 math.com
+
+
+Thanks
+======
+
 # Frontend
 
 [MathJax](http://www.mathjax.org/)
