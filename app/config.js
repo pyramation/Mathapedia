@@ -72,6 +72,10 @@ require.config({
     'books':'./modules/books/main',
     'books-views':'./modules/books/views',
 
+    'sketch': './modules/sketch/main',
+    'sketch-views':'./modules/sketch/views',
+
+
     'layout': './modules/layout/main',
 
     'latex': './modules/latex/main',

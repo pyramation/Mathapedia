@@ -8,6 +8,19 @@ define(['sandbox', 'async', 'app-data'], function(sandbox, async, Data) {
     };
   }
 
+  function getSketch(sketch_id) {
+    return function(callback) {
+      var sketch = new Data.Sketch();
+      sketch.id = sketch_id;
+      sketch.fetch({
+        success: function(data, resp) {
+            callback(null, data);
+        }
+      });
+    };
+  }
+
+
   function getBookSections(book_id) {
     return function(callback) {
       var book = new Data.TableOfContents();
@@ -76,7 +89,12 @@ define(['sandbox', 'async', 'app-data'], function(sandbox, async, Data) {
   var Router = sandbox.mvc.Router({
     routes: {
       "": "index",
-      "latex":"latex",
+
+      "latex":"newsketch",
+      "sketch/:sketch_id":"sketch",
+      "sketch/:sketch_id/edit":"editSketch",
+
+
       "about":"about",
       "auth":"auth",
 
@@ -151,6 +169,42 @@ define(['sandbox', 'async', 'app-data'], function(sandbox, async, Data) {
 
     },
 
+    sketch: function(sketch_id) {
+      var self = this;
+      async.series({
+        auth: getAuth(),
+        sketch: getSketch(sketch_id)
+      }, function results(err, res) {
+        if (!err) {
+          self.go('sketch', [res.auth, res.sketch]);
+        }
+      });
+
+    },
+
+    newsketch: function() {
+      var self = this;
+      async.series({
+        auth: getAuth()
+      }, function results(err, res) {
+        if (!err) {
+          self.edit('newsketch', [res.auth]);
+        }
+      });
+
+    },
+    editSketch: function(sketch_id) {
+      var self = this;
+      async.series({
+        auth: getAuth(),
+        sketch: getSketch(sketch_id)
+      }, function results(err, res) {
+        if (!err) {
+          self.edit('sketch', [res.auth, res.sketch]);
+        }
+      });
+
+    },
 
 
     book: function(book_id) {

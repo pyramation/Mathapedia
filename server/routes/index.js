@@ -1241,6 +1241,61 @@ exports.api = {
 
         },
 
+        UPDATESKETCH: function (req, res) {
+
+            var Sketch = req.models['Sketch'];
+
+            if (!(req.body.text && req.body.text.trim().length)) {
+                return res.send({data: ''});
+            }
+
+            if (req.session.user) {
+
+                async.waterfall([
+                    function (callback) {
+                        Sketch.find(req.params.sketch_id, callback);
+                    },
+                    function (sketch, callback) {
+                        if (sketch.user_id == req.session.user.id) {
+                            sketch.updateAttribute('text', req.body.text, callback);
+                        } else {
+                            Sketch.create({text: req.body.text, user_id: req.session.user.id}, s(req, res));
+                        }
+                    }
+                ], function (err, results) {
+                    res.send(results);
+                });
+
+
+            } else {
+
+                var Sketch = req.models['Sketch'];
+                if (req.session.user) {
+                    Sketch.create({text: req.body.text, user_id: req.session.user.id}, s(req, res));
+                } else {
+                    Sketch.create({text: req.body.text}, s(req, res));
+                }
+
+
+            }
+
+        },
+
+        READSKETCH: function (req, res) {
+
+            var Sketch = req.models['Sketch'];
+
+            async.waterfall([
+                function (callback) {
+                    Sketch.find(req.params.sketch_id, callback);
+                }
+            ], function (err, results) {
+                res.send(results);
+            });
+
+        },
+
+
         POST: function(req, res) {
             res.send(200);
         },

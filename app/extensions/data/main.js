@@ -2,6 +2,14 @@ define(['sandbox', 'async'], function(sandbox, async) {
 
 	var Data = {};
 
+
+		Data.Sketch = sandbox.mvc.Model({
+			url: function() {
+				return this.id ? '/api/sketch/' + this.id : '/sketch';
+			}
+		});
+
+
 		Data.Book = sandbox.mvc.Model({
 			url: function() {
 				if (this.id) return '/api/books/' + this.id;

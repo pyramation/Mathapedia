@@ -9,11 +9,14 @@ module.exports = function(app, routes) {
 	// validate that ids are numeric
 	app.param('id', Number);
 	app.param('section_id', Number);
+	app.param('sketch_id', Number);
 	app.param('subsection_id', Number);
 	app.param('book_id', Number);
 
 	app.post('/sketch', middleWare, routes.api['contents'].SKETCH); // read
 	app.get('/sketch', middleWare, routes.api['contents'].RANDOM); // read
+	app.get('/api/sketch/:sketch_id', middleWare, routes.api['contents'].READSKETCH); // read
+ 	app.put('/api/sketch/:sketch_id', middleWare, routes.api['contents'].UPDATESKETCH); // read
 
 
 	app.get('/api/contents', middleWare, routes.api['contents'].GET); // read
