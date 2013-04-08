@@ -4,5 +4,5 @@ function deploy() {
     cd dist
     ln -s ../app/assets/img img 
     cd ..
-    forever start server/app.js
+    RELEASE=1 forever start server/app.js
 }
