@@ -2,8 +2,8 @@ var Schema = require('jugglingdb').Schema;
 
 var schema = new Schema('mysql', {
     "driver": "mysql",
-    "username": "mathiscool",
-    "password": "skateboard",
+    "username": "latex2html5",
+    "password": "skateboard321",
     "host": "localhost",
     "port": 3306,
     "database": "latex2html5_db",
