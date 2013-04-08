@@ -162,6 +162,10 @@ If you want to work locally and use some.com in your browser, you can edit your 
 
     127.0.0.1 math.com
 
+Make your push/pull life easier
+-------------------------------
+
+git remote set-url origin git@github.com:pyramation/LaTeX2HTML5.git
 
 Thanks
 ======
