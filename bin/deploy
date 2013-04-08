@@ -1,7 +1,8 @@
-#!/bin/bash
-forever stopall
-bbb release
-cd dist
-ln -s ../app/assets/img img 
-cd ..
-forever start server/app.js
+function deploy() {
+    forever stopall
+    bbb release
+    cd dist
+    ln -s ../app/assets/img img 
+    cd ..
+    forever start server/app.js
+}
