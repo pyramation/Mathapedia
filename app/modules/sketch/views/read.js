@@ -54,7 +54,7 @@ define(['sandbox', 'app-data', 'renderer', 'parse'], function(sandbox, Data, Ren
 
           TEX.render();
 
-          $('body').html(TEX.el).css('padding','100px');
+          $('body').html(TEX.el).css('padding','20px');
 
 
         },
