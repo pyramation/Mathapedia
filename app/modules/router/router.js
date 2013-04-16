@@ -92,6 +92,7 @@ define(['sandbox', 'async', 'app-data'], function(sandbox, async, Data) {
 
       "latex":"newsketch",
       "sketch/:sketch_id":"sketch",
+      "sketch/:sketch_id/embed":"embed",
       "sketch/:sketch_id/edit":"editSketch",
 
 
@@ -177,6 +178,20 @@ define(['sandbox', 'async', 'app-data'], function(sandbox, async, Data) {
       }, function results(err, res) {
         if (!err) {
           self.go('sketch', [res.auth, res.sketch]);
+        }
+      });
+
+    },
+
+
+    embed: function(sketch_id) {
+      var self = this;
+      async.series({
+        auth: getAuth(),
+        sketch: getSketch(sketch_id)
+      }, function results(err, res) {
+        if (!err) {
+          self.go('embed', [res.auth, res.sketch]);
         }
       });
 

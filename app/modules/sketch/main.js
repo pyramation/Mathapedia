@@ -6,6 +6,7 @@ define(['sandbox', 'sketch-views/edit', 'sketch-views/read'], function(sandbox, 
             sandbox.subscribe('edit:sketch', 'sketch', this.editSketch, this);
             sandbox.subscribe('edit:newsketch', 'sketch', this.newSketch, this);
             sandbox.subscribe('render:sketch', 'sketch', this.viewSketch, this);
+            sandbox.subscribe('render:embed', 'sketch', this.embedSketch, this);
         },
 
         editSketch: function(who, auth, sketch) {
@@ -43,7 +44,19 @@ define(['sandbox', 'sketch-views/edit', 'sketch-views/read'], function(sandbox, 
             });
             sandbox.publish('render', 'sketch', v);
 
-        }       
+        },
+
+        embedSketch: function(who, auth, sketch) {
+
+            var v = new Content.Embed({
+                auth: auth,
+                model: sketch
+            });
+            // sandbox.publish('render', 'sketch', v);
+
+            
+
+        }         
 
     });
 
