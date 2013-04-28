@@ -56,6 +56,7 @@ Installing jugglingdb (the database ORM):
 
     cd node_modules
     git clone https://github.com/pyramation/jugglingdb
+    cd jugglingdb
     git checkout c4a8a6ff2a061704970def0fbdd255a3979060ca
 
 Database Setup
