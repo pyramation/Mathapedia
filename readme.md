@@ -56,6 +56,7 @@ Installing jugglingdb (the database ORM):
 
     cd node_modules
     git clone https://github.com/pyramation/jugglingdb
+    cd jugglingdb
     git checkout c4a8a6ff2a061704970def0fbdd255a3979060ca
 
 Database Setup
@@ -67,12 +68,12 @@ Create a mysql user
 
 Create the database
 
-	CREATE DATABASE latex2html5_db;
+    CREATE DATABASE latex2html5_db;
 
 Initialize database
 
-	cd /var/www/LaTeX2HTML5
-	bbb db:migrate
+    cd /var/www/LaTeX2HTML5
+    bbb db:migrate
 
 
 Web Server Setup
@@ -84,7 +85,7 @@ make public folder and create symbolic links that alias the public folders
     mkdir public
     cd public
     ln -s ../LaTeX2HTML5/dist dist
-    ln -s../LaTeX2HTML5/app app
+    ln -s ../LaTeX2HTML5/app app
 
 Edit nginx.conf in /usr/local/nginx/conf or wherever it was installed so that you proxy port 9000 and point to the public folder for the root:
 
