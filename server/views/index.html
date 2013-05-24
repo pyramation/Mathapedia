@@ -164,6 +164,29 @@ $$
 
 \newcommand{\ifff}{\LeftRightArrow}
 
+<!-- For the set of reals and integers -->
+\newcommand{\rr}{\R}
+\newcommand{\reals}{\R}
+\newcommand{\ii}{\Z}
+\newcommand{\cc}{\C}
+\newcommand{\nn}{\N}
+\newcommand{\nats}{\N}
+
+<!-- For terms being indexed. 
+Puts them in standard font face and creates an index entry.
+arg: The term being defined. 
+\newcommand{\pointer}[1]{#1\index{#1}} -->
+
+<!-- For bold terms to be index, but defined elsewhere
+Puts them in bold face and creates an index entry.
+arg: The term being defined. -->
+\newcommand{\strong}[1]{\textbf{#1}}
+
+<!-- For set names.
+Puts them in italics. In math mode, yields decent spacing.
+arg: The name of the set. -->
+\newcommand{\set}[1]{\textit{#1}}
+
 $$
 </div>
 
