@@ -74,7 +74,6 @@ define(['sandbox'], function(sandbox) {
             solution: /\\begin\{solution\}/,
 
 
-
             endexample: /\\end\{example\}/,
             enddefinition: /\\end\{definition\}/,
             endproblem: /\\end\{problem\}/,
@@ -183,6 +182,7 @@ define(['sandbox'], function(sandbox) {
 
             href: /\\href\{[^}]*\}\{[^}]*\}/g,
             img: /\\img\{[^}]*\}/g,
+            set: /\\set\{[^}]*\}/g,
             // iframe: /\\iframe\{[^}]*\}/g,
             youtube: /\\youtube\{[^}]*\}/g,
 
@@ -218,6 +218,10 @@ define(['sandbox'], function(sandbox) {
 
             href: matchrepl(/\\href\{([^}]*)\}\{([^}]*)\}/, function(m) {
                 return '<a href="'+m[1]+'">'+ m[2] +'</a>';
+            }),
+
+            set: matchrepl(/\\set\{([^}]*)\}/, function(m) {
+                return '<i>'+m[1]+'</i>';
             }),
 
             euler: simplerepl(/Euler\^/, 'exp'),
