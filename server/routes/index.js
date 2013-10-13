@@ -11,6 +11,7 @@ var crypto = require('crypto');
 */
 
 function filterContent (content) {
+    if (!content) content = '';
 
     var lines = content.split('\n');
 
