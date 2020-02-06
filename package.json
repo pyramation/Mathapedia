@@ -16,7 +16,7 @@
   "dependencies": {
     "async": "0.1.22",
     "bbb": "^2.0.0",
-    "ejs": "0.8.2",
+    "ejs": "3.0.1",
     "express": "3.0.0rc3",
     "express-params": "0.0.3",
     "grunt": "^1.0.4",
