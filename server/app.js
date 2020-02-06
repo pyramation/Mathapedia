@@ -26,6 +26,8 @@ app.configure(function(){
   app.set('port', process.env.PORT || 9000);
   app.set('views', __dirname + '/views');
 
+  app.use(express.static(__dirname + '/../'));
+
   app.set("view options", {layout: false});
   app.engine('html', require('ejs').renderFile);
 

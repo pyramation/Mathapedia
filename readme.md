@@ -1,6 +1,47 @@
 Mathapedia + LaTeX2HTML5
 ====================
 
+
+DEPRECATED!
+
+Visit [latex2js](http://latex2js.com)
+
+====================
+
+
+Notes for revival (locally)
+
+## initialize db
+
+```
+docker-compose up 
+```
+
+* login as root with the example password in compose file
+* create the database latex2html5_db
+* load the sql dump in the admin (localhost:8080)
+* dump file is located in Dans preferred cloud drive `>websites>mathapedia`
+
+## build the frontend and start app
+
+* install and old version of `bbb`
+* build it
+* start it on release mode
+
+```
+npm install -g bbb@0.1.16
+bbb release
+RELEASE=1 node server/app.js
+```
+
+## NOTES
+
+it's completely frontend rendered, so to make this a static site, need to build in rendering.
+
+
+====================
+
+
 GOOD NEWS! This project now has a frontend-only version: [latex2html5](http://latex2html5.com) ([github](https://github.com/Mathapedia/LaTeX2HTML5))
 
 The loose structure and nature of user interface design poses a problem for documenting science and related interfaces in a consistent manner. TeX provides us with some "laws" to obey in order to design the output of a text and graphical language around. Hence, we can attempt to create a synthesis of a structured user interface specification (TeX) and a structured functional specification (HTML5) to provide a publishing platform for the current and next generation.
